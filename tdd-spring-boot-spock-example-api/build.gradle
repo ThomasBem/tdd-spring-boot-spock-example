@@ -1,0 +1,63 @@
+plugins {
+    id "java"
+    id "groovy"
+    id "maven"
+    id "idea"
+    id "jacoco"
+
+    id "org.springframework.boot" version "1.5.1.RELEASE"
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+    flatDir { dirs '../tdd-spring-boot-spock-example-web/dist/libs' }
+}
+
+dependencies {
+    compile name: 'tdd-spring-boot-spock-example-web'
+
+    compile('com.github.springfox.loader:springfox-loader:0.1.2')
+    compile('org.projectlombok:lombok')
+    compile('com.h2database:h2:1.4.193')
+    compile('org.postgresql:postgresql:9.4.1208.jre7')
+
+    compile('org.springframework.boot:spring-boot-devtools')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+
+    testCompile('cglib:cglib-nodep:3.2.4')
+    testCompile('org.spockframework:spock-spring:1.0-groovy-2.4')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('com.github.tomakehurst:wiremock-standalone:2.5.1')
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.4'
+}
+
+bootRun {
+    systemProperties System.properties
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+}
+
+import org.apache.tools.ant.filters.ReplaceTokens
+afterEvaluate {
+    configure(processResources) {
+        filesMatching('**/*.yml') {
+            filter(ReplaceTokens, tokens: [version: jar.version])
+        }
+    }
+}
+
+jar {
+    baseName = 'tdd-spring-boot-spock-example'
+    version = '0.0.1-SNAPSHOT'
+}

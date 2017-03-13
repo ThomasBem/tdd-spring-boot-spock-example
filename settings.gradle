@@ -1,0 +1,4 @@
+rootProject.name = 'tdd-spring-boot-spock-example'
+include 'tdd-spring-boot-spock-example-api'
+include 'tdd-spring-boot-spock-example-web'
+

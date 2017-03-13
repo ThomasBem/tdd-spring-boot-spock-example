@@ -1,0 +1,10 @@
+defaultTasks 'tdd-spring-boot-spock-example-web:clean',
+        'tdd-spring-boot-spock-example-web:yarn',
+        'tdd-spring-boot-spock-example-web:yarn_run_build-test',
+        'tdd-spring-boot-spock-example-web:webjar',
+        'tdd-spring-boot-spock-example-api:clean',
+        'tdd-spring-boot-spock-example-api:build'
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.4'
+}
