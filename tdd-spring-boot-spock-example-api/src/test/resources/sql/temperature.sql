@@ -8,6 +8,9 @@ CREATE TABLE tdd.temperature(
   timestamp VARCHAR
 );
 
-INSERT INTO tdd.temperature (city, temperature, timestamp) VALUES ('Oslo', 25, '123456785');
-INSERT INTO tdd.temperature (city, temperature, timestamp) VALUES ('Oslo', 20, '123456786');
-INSERT INTO tdd.temperature (city, temperature, timestamp) VALUES ('Oslo', 15, '123456787');
+INSERT INTO tdd.temperature (city, temperature, timestamp) VALUES ('Oslo', 25, '123456781');
+INSERT INTO tdd.temperature (city, temperature, timestamp) VALUES ('Oslo', 20, '123456782');
+INSERT INTO tdd.temperature (city, temperature, timestamp) VALUES ('Oslo', 15, '123456783');
+INSERT INTO tdd.temperature (city, temperature, timestamp) VALUES ('Oslo', 10, '123456784');
+INSERT INTO tdd.temperature (city, temperature, timestamp) VALUES ('Oslo', 5, '123456785');
+INSERT INTO tdd.temperature (city, temperature, timestamp) VALUES ('Oslo', 35, '123456786');

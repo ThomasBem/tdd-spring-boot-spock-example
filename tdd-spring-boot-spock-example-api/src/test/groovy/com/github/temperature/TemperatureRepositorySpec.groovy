@@ -22,4 +22,12 @@ class TemperatureRepositorySpec extends Specification {
         savedTemperature.temperature == 30
         savedTemperature.timestamp == '987654321'
     }
+
+    def "Get last five temperature readings"() {
+        when:
+        def temperatureReadings = repository.findLastFiveTemperatureReadings()
+
+        then:
+        temperatureReadings.size() == 5
+    }
 }
